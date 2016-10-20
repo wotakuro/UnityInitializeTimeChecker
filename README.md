@@ -1,0 +1,2 @@
+# UnityInitializeChecker
+Unityアプリで起動時間を測るためのプログラムです
