@@ -37,8 +37,12 @@ Assets/Demo/demo.unity
 利用に関しても下記スクリプトを参照していただければと思います
 Assets/Demo/DemoScript.cs
 
+# 実時間との差異ついて
+## Androidcでの挙動について
+Androidでは Processが立ち上がってからのCPU時間を取得しています。
+そのため多少のずれがある場合がございます。
 
-# iOSでの挙動について
+## iOSでの挙動について
 「iOS Human Interface Guidelines」によると、
  > 起動ファイルや起動画像は、アプリケーションが起動するまで、時間つなぎとしてiOSが表示する画像です。
 
