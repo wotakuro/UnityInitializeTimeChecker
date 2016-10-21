@@ -3,9 +3,10 @@ using System.Runtime.InteropServices;
 
 namespace UnityUtil{
 	public class InitializeTimeChecker{
-
+		#if UNITY_IOS || UNITY_IPHONE
 		[DllImport("__Internal")]
 		private static extern float InitializeTimeCheckerGetCpuSecFromAppBoot();
+		#endif
 
 		public static float GetCpuSecFromAppBoot(){
 			#if UNITY_EDITOR
