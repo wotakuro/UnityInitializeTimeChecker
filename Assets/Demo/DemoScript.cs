@@ -16,8 +16,9 @@ public class DemoScript : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	void Start () {
-		text.text = string.Format ("Initialize {0:f4}\nFirstAwake {1:f4}", initTime , firstAwakeTime);
+	void Update () {
+		float nowTime = UnityUtil.InitializeTimeChecker.GetCpuSecFromAppBoot();
+		text.text = string.Format ("Initialize {0:f4}\nFirstAwake {1:f4}\nNowTime {2:f4}", initTime , firstAwakeTime,nowTime);
 	}
 	
 }
