@@ -16,6 +16,22 @@ UnityUtil.InitializeTimeChecker.GetCpuSecFromAppBoot();
 と呼ぶことで、アプリ起動からの秒数をfloatとして取得することが出来ます。
 (内部的にはプロセス起動からの時間を取得しています。)
 
+RuntimeInitializeOnLoadMethod と組み合わせて使うことで、アプリにも組み込みやすいかと思います。
+下記のような処理を挟むことでログで計測する形です。
+
+	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+	public static void OnInitializedApp(){
+		float initTime = UnityUtil.InitializeTimeChecker.GetCpuSecFromAppBoot();
+		Debug.Log (string.Format ("アプリ起動までにかかった時間は {0:f4}秒でした", initTime) );
+	}
+ 
+	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+	public static void OnInitializedAfterSceneLoad(){
+		float initTime = UnityUtil.InitializeTimeChecker.GetCpuSecFromAppBoot();
+		Debug.Log (string.Format ("最初のシーンロードまでは {0:f4}秒でした", initTime));
+	}
+
+
 また、デモとして、下記シーンを用意いたしました
 Assets/Demo/demo.unity
 利用に関しても下記スクリプトを参照していただければと思います
