@@ -7,7 +7,7 @@ public class DemoScript : MonoBehaviour {
 	public Text text;
 	private float firstAwakeTime = 0.0f;
 
-	[RuntimeInitializeOnLoadMethod]
+	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 	public static void OnInitializedApp(){
 		initTime = UnityUtil.InitializeTimeChecker.GetCpuSecFromAppBoot();
 	}
